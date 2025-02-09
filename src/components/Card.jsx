@@ -53,12 +53,11 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
         // Extrae y formatea las fechas y horas de las predicciones del clima
         forecastDate3 = forecast.list[0].dt_txt.substring(8, 10) + '/' +
                         forecast.list[0].dt_txt.substring(5, 7) + '/' +
-                        forecast.list[0].dt_txt.substring(0, 4) + ' ' +
-                        'ㅤ' + forecast.list[0].dt_txt.substring(11, 13);
+                        forecast.list[0].dt_txt.substring(0, 4);
 
-        forecastDate6 = forecast.list[1].dt_txt.substring(8, 10) + '/' +
-                        forecast.list[1].dt_txt.substring(5, 7) + '/' +
-                        forecast.list[1].dt_txt.substring(0, 4);
+        forecastDate6 = forecast.list[2].dt_txt.substring(8, 10) + '/' +
+                        forecast.list[2].dt_txt.substring(5, 7) + '/' +
+                        forecast.list[2].dt_txt.substring(0, 4);
 
         forecastDate9 = forecast.list[4].dt_txt.substring(8, 10) + '/' +
                         forecast.list[4].dt_txt.substring(5, 7) + '/' +
@@ -139,7 +138,7 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
                                         <p className="fdate">{forecastDate9}</p>
                                         <p className="fdate">{period9}</p>
                                         <p className="description"><img src={iconUrl9} alt="icon" />{forecast.list[3].weather[0].description}</p>
-                                        <p className="temp">{(forecast.list[3].main.temp - 273.15).toFixed(1)}°C</p>
+                                        <p className="temp">{(forecast.list[4].main.temp - 273.15).toFixed(1)}°C</p>
                                     </div>
                                 </div>
                             </div>
