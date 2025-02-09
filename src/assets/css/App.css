@@ -1,0 +1,98 @@
+body {
+  background-color: #2F3544;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Alinea los elementos al inicio de la pantalla */
+  min-height: 100vh; /* Asegura que la altura cubra toda la pantalla */
+  padding-top: 1rem; /* Ajusta un margen superior para separar la barra de navegación */
+  gap: 1rem; /* Espaciado entre los elementos */
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.container {
+  margin-top: 4rem; /* Da espacio debajo de la barra de navegación */
+}
+
+.input-group{
+  width: 60%;
+}
+
+.card {
+  width: 60%;
+  display: flex;
+  flex-direction: column; /* Organiza los hijos verticalmente */
+  padding: 20px;
+  gap: 1rem; /* Espaciado entre elementos */
+}
+
+.card-text{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.card-date {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.card-temp {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 15px 0;
+}
+
+.card-desc {
+  font-size: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.fdate{
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.temp{
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.temp_act{
+  text-align: center;
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 10px;
+}
