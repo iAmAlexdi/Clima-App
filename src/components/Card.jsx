@@ -76,7 +76,7 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
             periods[1] = periods[0] === "Mañana" ? "Tarde" : "Noche";
         }
         if (periods[2] === periods[1]) {
-            periods[2] = periods[1] === "Mañana" ? "Tarde" : "Noche";
+            periods[2] = periods[1] === "Noche" ? "Mañana" : "Tarde";
         }
 
         period3 = periods[0] + (isTomorrow3 ? " (Mañana)" : "");
