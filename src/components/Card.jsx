@@ -5,15 +5,16 @@ import React from "react";
 import Spinner from "./Spinner";
 
 const getPeriod = (hour) => {
-    if (hour >= 0 && hour < 12) {
+    if (hour > 0 && hour <= 6) {
+        return "Madrugada";
+    } else if (hour > 6 && hour <= 12) {
         return "Mañana";
-    } else if (hour >= 12 && hour < 19) {
+    } else if (hour > 12 && hour <= 18) {
         return "Tarde";
     } else {
         return "Noche";
     }
 };
-
 const extractDate = (dt_txt) => {
     let day = dt_txt.substring(8, 10);
     let month = dt_txt.substring(5, 7);
@@ -58,21 +59,28 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
                         forecast.list[1].dt_txt.substring(5, 7) + '/' +
                         forecast.list[1].dt_txt.substring(0, 4);
 
-        forecastDate9 = forecast.list[5].dt_txt.substring(8, 10) + '/' +
-                        forecast.list[5].dt_txt.substring(5, 7) + '/' +
-                        forecast.list[5].dt_txt.substring(0, 4);
+        forecastDate9 = forecast.list[4].dt_txt.substring(8, 10) + '/' +
+                        forecast.list[4].dt_txt.substring(5, 7) + '/' +
+                        forecast.list[4].dt_txt.substring(0, 4);
 
-        let { date: date3, hour: hour3 } = extractDate(forecast.list[1].dt_txt);
-        let { date: date6, hour: hour6 } = extractDate(forecast.list[2].dt_txt);
-        let { date: date9, hour: hour9 } = extractDate(forecast.list[5].dt_txt);
+        let { date: date3, hour: hour3 } = extractDate(forecast.list[0].dt_txt);
+        let { date: date6, hour: hour6 } = extractDate(forecast.list[1].dt_txt);
+        let { date: date9, hour: hour9 } = extractDate(forecast.list[4].dt_txt);
 
         let periods = [getPeriod(hour3), getPeriod(hour6), getPeriod(hour9)];
 
         if (periods[1] === periods[0]) {
-            periods[1] = periods[0] === "Mañana" ? "Tarde" : "Noche";
+            periods[1] = periods[0] === "Madrugada" ? "Mañana" 
+                        : periods[0] === "Mañana" ? "Tarde" 
+                        : periods[0] === "Tarde" ? "Noche" 
+                        : "Madrugada";
         }
+        
         if (periods[2] === periods[1]) {
-            periods[2] = periods[1] === "Noche" ? "Mañana" : "Tarde";
+            periods[2] = periods[1] === "Madrugada" ? "Mañana" 
+                        : periods[1] === "Mañana" ? "Tarde" 
+                        : periods[1] === "Tarde" ? "Noche" 
+                        : "Madrugada";
         }
 
         period3 = periods[0];
