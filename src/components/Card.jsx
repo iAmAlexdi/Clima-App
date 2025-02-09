@@ -58,17 +58,13 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
                         forecast.list[1].dt_txt.substring(5, 7) + '/' +
                         forecast.list[1].dt_txt.substring(0, 4);
 
-        forecastDate9 = forecast.list[4].dt_txt.substring(8, 10) + '/' +
-                        forecast.list[4].dt_txt.substring(5, 7) + '/' +
-                        forecast.list[4].dt_txt.substring(0, 4);
+        forecastDate9 = forecast.list[5].dt_txt.substring(8, 10) + '/' +
+                        forecast.list[5].dt_txt.substring(5, 7) + '/' +
+                        forecast.list[5].dt_txt.substring(0, 4);
 
         let { date: date3, hour: hour3 } = extractDate(forecast.list[1].dt_txt);
         let { date: date6, hour: hour6 } = extractDate(forecast.list[2].dt_txt);
-        let { date: date9, hour: hour9 } = extractDate(forecast.list[4].dt_txt);
-
-        let isTomorrow3 = date3 !== date;
-        let isTomorrow6 = date6 !== date;
-        let isTomorrow9 = date9 !== date;
+        let { date: date9, hour: hour9 } = extractDate(forecast.list[5].dt_txt);
 
         let periods = [getPeriod(hour3), getPeriod(hour6), getPeriod(hour9)];
 
@@ -79,9 +75,9 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
             periods[2] = periods[1] === "Noche" ? "Mañana" : "Tarde";
         }
 
-        period3 = periods[0] + (isTomorrow3 ? " (Mañana)" : "");
-        period6 = periods[1] + (isTomorrow6 ? " (Mañana)" : "");
-        period9 = periods[2] + (isTomorrow9 ? " (Mañana)" : "");
+        period3 = periods[0];
+        period6 = periods[1];
+        period9 = periods[2];
     }
 
     return (
