@@ -53,7 +53,8 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
         // Extrae y formatea las fechas y horas de las predicciones del clima
         forecastDate3 = forecast.list[0].dt_txt.substring(8, 10) + '/' +
                         forecast.list[0].dt_txt.substring(5, 7) + '/' +
-                        forecast.list[0].dt_txt.substring(0, 4);
+                        forecast.list[0].dt_txt.substring(0, 4) + ' ' +
+                        'ㅤ' + forecast.list[0].dt_txt.substring(11, 13);
 
         forecastDate6 = forecast.list[1].dt_txt.substring(8, 10) + '/' +
                         forecast.list[1].dt_txt.substring(5, 7) + '/' +
@@ -86,6 +87,10 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
         period3 = periods[0];
         period6 = periods[1];
         period9 = periods[2];
+
+        if (periods[0] === "Noche" && forecast.list[0].dt_txt.substring(11, 13) === "00") {
+            forecastDate3 = date;
+        }
     }
 
     return (
